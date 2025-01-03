@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@angular/material": "^19.0.4",
+    "firebase": "^11.1.0"
+  }
+}
