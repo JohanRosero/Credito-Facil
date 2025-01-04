@@ -50,14 +50,15 @@
                   name="repetpassword" [(ngModel)]="repetpassword" />
               </c-input-group>
               <div class="d-grid">
-                <button cButton color="success">
+                <button cButton color="info" (click)="register()"> 
                   @if (loadingregister) {
                   <c-spinner aria-hidden="false" size="sm"></c-spinner>
+                  Loading ...
                   }
                   @else{
                   Create Account
                   }
-                  Loading ...</button>
+                </button>
               </div>
             </form>
           </c-card-body>
