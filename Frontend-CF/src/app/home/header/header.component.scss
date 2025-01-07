@@ -1,9 +1,83 @@
-.cf-banner{
-    background-image: url('../../../assets/images/angular.jpg');    
+.cf-banner {
+    background-image: url('../../../assets/images/bg-banner.jpeg');
     background-size: cover;
-    height: 70vh;
+    background-position: center;    
     padding: 0;
     margin: 0;
 
 }
 
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+.cf-img {
+
+    width: 100%;
+    background-color: rgba(5, 1, 13, 0.75);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    margin: 0;
+
+    .cf-text h1 {
+        padding: 2em 0;
+        font-family: "Poppins";
+        font-size: 3.5em;
+        font-weight: bolder;
+    }
+
+    .cf-text p {
+        font-family: "Poppins";
+        font-size: 1em;
+        font-weight: 500;
+    }
+
+    .box-btn {
+        margin-top: 20px;
+
+        a {
+            font-family: "Poppins";
+            text-decoration: none;
+            padding: 10px 10px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: 0.3s;
+            margin: 10px;
+
+            &:hover {
+                background-color: #0c0c0c;
+                color: orange;
+            }
+        }
+    }
+
+}
+
+
+@media (max-width: 768px) {
+    .cf-img {
+        height: 100vh;
+
+        .cf-text h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        .cf-text p {
+            font-size: 1em;
+            margin: 0;
+        }
+
+        .box-btn {
+            a {
+                padding: 10px 5px;
+            }
+        }
+
+        // Estilos para pantallas pequeñas
+    }
+}
