@@ -23,16 +23,8 @@ export class AuthenticateService {
   constructor() {
   }
 
-  async register(email: string, password: string) {
-    try {
-      return await createUserWithEmailAndPassword(this.auth, email, password)
-        .then((result) => {
-          sendEmailVerification(result.user)
-          console.log(JSON.stringify(result.user));// review
-        });
-    } catch (error) {
-      return error;
-    }
+  async register(email: string, password: string) : Promise<any> {
+    return createUserWithEmailAndPassword(this.auth, email, password);
   }
 
   async signIn(email: string, password: string): Promise<any> {
@@ -45,6 +37,14 @@ export class AuthenticateService {
 
   async resetPassword(email: string) {
     return sendPasswordResetEmail(this.auth, email);
+  }
+
+  sendEmailVerification() {
+    if (this.auth.currentUser) {
+      return sendEmailVerification(this.auth.currentUser);
+    } else {
+      throw new Error('No user is currently signed in.');
+    }
   }
 
 }
