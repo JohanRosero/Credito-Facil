@@ -1,10 +1,11 @@
 import { Routes } from '@angular/router';
 import { DefaultLayoutComponent } from './layout';
+import { HomepageComponent } from '../app/home/homepage/homepage.component';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
@@ -84,5 +85,8 @@ export const routes: Routes = [
       title: 'Register Page'
     }
   },
-  { path: '**', redirectTo: 'dashboard' }
+  { path: '**', redirectTo: 'home' },
+  {
+    path: 'home', component: HomepageComponent
+  }
 ];

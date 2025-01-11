@@ -36,7 +36,33 @@ type CardColor = {
     selector: 'app-cards',
     templateUrl: './cards.component.html',
     styleUrls: ['./cards.component.scss'],
-  imports: [RowComponent, ColComponent, CardComponent, CardHeaderComponent, CardBodyComponent, DocsExampleComponent, NgTemplateOutlet, CardTitleDirective, CardTextDirective, ButtonDirective, CardSubtitleDirective, CardLinkDirective, RouterLink, ListGroupDirective, ListGroupItemDirective, CardFooterComponent, BorderDirective, CardGroupComponent, GutterDirective, CardImgDirective, TabsComponent, TabsListComponent, TabDirective, TabsContentComponent, TabPanelComponent]
+  imports: [
+    RowComponent,
+    ColComponent,
+    CardComponent,
+    CardHeaderComponent,
+    CardBodyComponent,
+    DocsExampleComponent,
+    NgTemplateOutlet,
+    CardTitleDirective,
+    CardTextDirective,
+    ButtonDirective,
+    CardSubtitleDirective,
+    CardLinkDirective,
+    RouterLink,
+    ListGroupDirective,
+    ListGroupItemDirective,
+    CardFooterComponent,
+    BorderDirective,
+    CardGroupComponent,
+    GutterDirective,
+    CardImgDirective,
+    TabsComponent,
+    TabsListComponent,
+    TabDirective,
+    TabsContentComponent,
+    TabPanelComponent
+  ]
 })
 export class CardsComponent {
 

@@ -1,0 +1,24 @@
+$nav-background: #fff;
+$nav-font-color: #0c0c0c;
+$link-hover-color: #1e4db2;
+
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+nav {
+  font-family: 'Poppins';
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.navigation {
+  background: $nav-background;
+}
+
+a {
+  color: $nav-font-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $link-hover-color;
+  }
+}
