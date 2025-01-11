@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+$cf-footer-bg: #dedee0;
+$cf-color: #202020;
+
+.cf-footer {
+    font-family: "Poppins";
+    color: $cf-color ;
+    background-color: $cf-footer-bg;
+    padding:0;
+    margin: 0;
+
+    .cf-footer-contact {
+
+        padding: 1em 2em;
+
+    }
+
+    .cf-footer-copy{
+        
+        background-color: $cf-footer-bg;
+        color: $cf-color;
+        font-size: 0.9em;
+        text-align: center;
+
+    }
+}

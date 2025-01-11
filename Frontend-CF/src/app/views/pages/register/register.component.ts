@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { SharedModule } from '../../../shared/shared.module';
 import { AuthenticateService } from '../../../services/authenticate.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
-  imports: [SharedModule]
+  imports: [SharedModule, CommonModule]
 })
 export class RegisterComponent {
 
@@ -16,6 +17,7 @@ export class RegisterComponent {
   public message: string = "";
   public type: string = "";
   public loadingregister: boolean = false;
+  public showRegisterButton: boolean = true;
 
   constructor(private authenticateService: AuthenticateService) { }
 
@@ -33,6 +35,7 @@ export class RegisterComponent {
           this.loadingregister = false;
           this.message = "User registered successfully, please verify your email to confirm your account";
           this.type = "success";
+          this.showRegisterButton = false;
         }).catch((error) => {
           this.loadingregister = false;
           this.message = error.message;

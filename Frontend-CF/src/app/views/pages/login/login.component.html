@@ -6,23 +6,38 @@
           <c-card class="p-4">
             <c-card-body>
               <form cForm>
-                <h1>Login</h1>
+                <h1>
+                  <a [routerLink]="['/home']" routerLinkActive="router-link-active">
+                    <span><svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px"
+                        fill="#253C59">
+                        <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+                      </svg>
+                    </span>
+                  </a>Login
+                </h1>
+                <!-- message section -->
+                @if (message) {
+                  <div class="alert alert-{{type}}" role="alert">
+                    {{ message }}
+                  </div>
+                  }
+
                 <p class="text-body-secondary">Sign In to your account</p>
                 <c-input-group class="mb-3">
                   <span cInputGroupText>
                     <svg cIcon name="cilUser"></svg>
                   </span>
-                  <input autoComplete="username" cFormControl placeholder="Username" />
+                  <input autoComplete="email" cFormControl placeholder="Email" name="email" [(ngModel)]="email" />
                 </c-input-group>
                 <c-input-group class="mb-4">
                   <span cInputGroupText>
                     <svg cIcon name="cilLockLocked"></svg>
                   </span>
-                  <input autoComplete="current-password" cFormControl placeholder="Password" type="password" />
+                  <input autoComplete="current-password" cFormControl placeholder="Password" type="password" name="password" [(ngModel)]="password" />
                 </c-input-group>
                 <c-row>
                   <c-col xs="6">
-                    <button cButton class="px-4" color="primary">
+                    <button cButton class="px-4" color="primary" (click)="login()">
                       Login
                     </button>
                   </c-col>
