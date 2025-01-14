@@ -1,6 +1,6 @@
 import { NgTemplateOutlet } from '@angular/common';
 import { Component, computed, inject, input } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 import {
   AvatarComponent,
@@ -46,7 +46,7 @@ export class DefaultHeaderComponent extends HeaderComponent {
     return this.colorModes.find(mode => mode.name === currentMode)?.icon ?? 'cilSun';
   });
 
-  constructor( private authenticateService: AuthenticateService) {
+  constructor( private authenticateService: AuthenticateService,private router :Router) {
     super();
   }
 
@@ -127,8 +127,20 @@ export class DefaultHeaderComponent extends HeaderComponent {
     { id: 4, title: 'Angular Version', value: 100, color: 'success' }
   ];
 
-  public logout() {
-    this.authenticateService.signOut();
+  public logOut() {
+    this.authenticateService.signOut()
+    .then(() => {
+      localStorage.clear();
+      this.reloadPage();
+      // Redirect the user to the login page
+      this.router.navigate(['/login']);
+    });
+  }
+
+  reloadPage() {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/']);
+    });
   }
 
 }

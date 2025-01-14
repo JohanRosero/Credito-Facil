@@ -6,9 +6,11 @@ import {
   signInWithEmailAndPassword,
   signOut,
   sendPasswordResetEmail,
-  sendEmailVerification
+  sendEmailVerification,
+  onAuthStateChanged
 } from 'firebase/auth';
 import { environment } from '../environments/enviroment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,13 +19,17 @@ export class AuthenticateService {
 
   private app = initializeApp(environment.firebase);
   private auth = getAuth(this.app);
-  public loginResponse?: any;
 
+  user: any;
 
   constructor() {
+    onAuthStateChanged(this.auth, (user) => {
+      this.user = user;
+      // Puedes emitir un evento o actualizar un observable aquí para notificar a otros componentes sobre el cambio de estado
+    });
   }
 
-  async register(email: string, password: string) : Promise<any> {
+  async register(email: string, password: string): Promise<any> {
     return createUserWithEmailAndPassword(this.auth, email, password);
   }
 
@@ -46,5 +52,10 @@ export class AuthenticateService {
       throw new Error('No user is currently signed in.');
     }
   }
+
+  isLoggedIn() {
+    return this.user;
+  }
+
 
 }

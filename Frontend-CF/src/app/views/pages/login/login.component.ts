@@ -34,6 +34,8 @@ export class LoginComponent {
         .then((response) => {
           this.loadingLogin = false;
           this.credentials = response.user;
+
+          /* console.log(this.credentials); */
           if (this.credentials && !this.credentials.emailVerified) {
             throw new Error('Please verify your email before login');
           } else {
